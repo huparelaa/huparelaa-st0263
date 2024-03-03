@@ -16,8 +16,8 @@ export const loadConfigurations = () => {
     setConfig('IP_ADDRESS', jsonConfig.IP_ADDRESS);
     // SERVER_CENTRAL_ADDRESS
     setConfig('SERVER_CENTRAL_ADDRESS', jsonConfig.SERVER_CENTRAL_ADDRESS);
-
-    
+    // PORT
+    setConfig('PORT', jsonConfig.PORT);
   } catch (error) {
     console.error('Failed to load configurations:', error);
   }

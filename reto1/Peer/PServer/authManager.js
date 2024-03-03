@@ -12,7 +12,8 @@ function login(){
             console.log(res.data);
         })
         .catch((error) => {
-            console.error('Error:', error);
+            console.error('Error: Could not connect to the central server');
+            process.exit(0); // Termina el proceso del servidor
         });
 
 }

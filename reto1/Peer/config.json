@@ -1,4 +1,5 @@
 {
     "IP_ADDRESS": "127.0.0.1",
+    "PORT": "12345",
     "SERVER_CENTRAL_ADDRESS": "http://127.0.0.1:3000/"
 }
