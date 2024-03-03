@@ -27,10 +27,10 @@ function login(req, res) {
 
 function logout(req, res) {
     // print ip
-    const { ip } = req.body
+    const { ip, port } = req.body
 
     // check if peer is in list
-    const peer = PEERS_LIST.find(peer => peer.ip === ip)
+    const peer = PEERS_LIST.find(peer => peer.ip === ip && peer.port === port)
     if (!peer) {
         return res.send('Not logged in')
     }
