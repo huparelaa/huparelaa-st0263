@@ -3,26 +3,27 @@ import PEERS_LIST from './peersList.js'
 import { v4 as uuidv4 } from 'uuid';
 
 function login(req, res) {
-    // print ip
-    const { ip } = req.body
+    // Extraer IP y puerto del cuerpo de la solicitud
+    const { ip, port } = req.body;
 
-    // check if peer is already in list
-    const peer = PEERS_LIST.find(peer => peer.ip === ip)
+    // Verificar si el par ya está en la lista
+    const peer = PEERS_LIST.find(peer => peer.ip === ip && peer.port === port);
     if (peer) {
-        return res.send('Already logged in')
+        return res.send('Already logged in');
     }
 
-    // add peer to list
+    // Agregar el par a la lista con el IP y puerto proporcionados
     PEERS_LIST.push({
-        id: uuidv4(),
+        id: uuidv4(), // Asumiendo que uuidv4() ha sido importado correctamente
         ip: ip,
-        port: 3000,
+        port: port, // Usar el puerto recibido en lugar del valor fijo
         files: []
-    })
+    });
 
-    console.log(PEERS_LIST)
-    res.json('Login' + ip)
+    console.log(PEERS_LIST);
+    res.json(`Login ${ip}:${port}`); // Devolver respuesta con IP y puerto
 }
+
 
 function logout(req, res) {
     // print ip
