@@ -20,4 +20,5 @@ app.get('/', (req, res) => {
 
 app.post('/ps/upload', coreManager.uploadFile)
 app.post('/ps/download', coreManager.downloadFile)
+app.get('/ps/logout', authManager.logout)
 export default app
