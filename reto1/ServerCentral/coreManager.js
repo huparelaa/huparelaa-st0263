@@ -1,11 +1,11 @@
 import uploadUtil from './utils/upload.util.js'
 
-const getNextPeerIP = uploadUtil.roundRobin();
+const getNextPeerAddress = uploadUtil.roundRobin();
 
 function uploadFile(req, res) {
     const { file } = req.body
-    const ip = getNextPeerIP();
-    const response = uploadUtil.uploadFile(ip, file)
+    const { ip, port } = getNextPeerAddress();
+    const response = uploadUtil.uploadFile(ip, port, file)
     res.json(response)
 }
 

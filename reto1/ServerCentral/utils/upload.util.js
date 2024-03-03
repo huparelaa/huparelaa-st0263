@@ -1,6 +1,6 @@
 import PEERS_LIST from "../peersList.js"
-function uploadFile(ip, fileReceived) {
-    const peer = PEERS_LIST.find(peer => peer.ip === ip)
+function uploadFile(ip, port, fileReceived) {
+    const peer = PEERS_LIST.find(peer => peer.ip === ip && peer.port === port)
     if (!peer) {
         return 'Not logged in'
     }
@@ -37,8 +37,12 @@ function roundRobin() {
         if (index === PEERS_LIST.length) {
             index = 0
         }
-        return PEERS_LIST[index++].ip
+        index++
+        return {
+            ip: PEERS_LIST[index-1].ip,
+            port: PEERS_LIST[index-1].port
+        }
     }
 }
 
-export default { uploadFile, getFileByName, roundRobin}
+export default { uploadFile, getFileByName, roundRobin }
