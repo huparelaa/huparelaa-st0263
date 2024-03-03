@@ -1,12 +1,13 @@
 import uploadUtil from './utils/upload.util.js'
+import auth from './auth.js';
+import PEERS_LIST from './peersList.js';
 
 const getNextPeerAddress = uploadUtil.roundRobin();
 
 function uploadFile(req, res) {
-    const { file } = req.body
-    const { ip, port } = getNextPeerAddress();
-    const response = uploadUtil.uploadFile(ip, port, file)
-    res.json(response)
+    const { file, ip, port } = req.body; // Extrae ip y port del cuerpo de la solicitud
+    const response = uploadUtil.uploadFile(ip, port, file);
+    res.json(response);
 }
 
 function getFileByName(req, res) {
@@ -15,4 +16,15 @@ function getFileByName(req, res) {
     res.json(file)
 }
 
-export default { uploadFile, getFileByName }
+function getAvailablePeer(req, res) {
+    const { ip, port } = req.body;
+    const peer = auth.checkLogIn(ip, port);
+    if (!peer) {
+        return res.json('Not logged in')
+    }
+    const availablePeer = uploadUtil.getAvailablePeer(ip, port);
+    res.json(availablePeer);
+
+}
+
+export default { uploadFile, getFileByName, getAvailablePeer }

@@ -6,8 +6,10 @@ async function uploadToServer(fileName) {
     const API_URL = getConfig('SERVER_CENTRAL_ADDRESS');
     const url = `${API_URL}upload`;
     const file = fileName;
+    const port = getConfig('PORT');
+    const ip = getConfig('IP_ADDRESS')
     try {
-        const response = await axios.post(url, { file });
+        const response = await axios.post(url, { file, ip, port});
         return response;
     } catch (error) {
         console.log(error.response.data.error);

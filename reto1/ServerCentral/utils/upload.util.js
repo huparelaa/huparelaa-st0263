@@ -45,4 +45,16 @@ function roundRobin() {
     }
 }
 
-export default { uploadFile, getFileByName, roundRobin }
+function getAvailablePeer(ip, port) {
+    // Return available peer, but not the one that is asking
+    const availablePeers = PEERS_LIST.filter(peer => peer.ip !== ip || peer.port !== port)
+    if (availablePeers.length === 0) {
+        return 'No available peers'
+    }
+    // Order by number of files
+    availablePeers.sort((a, b) => a.files.length - b.files.length)
+
+    return availablePeers[0]
+}
+
+export default { uploadFile, getFileByName, roundRobin, getAvailablePeer }

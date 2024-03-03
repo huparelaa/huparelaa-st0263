@@ -6,10 +6,7 @@ def logout():
     f_logout()
 
 def upload():
-    print("Upload file")
-    print("File path: ")
-    file_path = input()
-    return file_path
+    f_upload()
 
 def download():
     print("Download file")

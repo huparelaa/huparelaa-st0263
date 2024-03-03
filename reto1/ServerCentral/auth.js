@@ -6,10 +6,8 @@ function login(req, res) {
     // Extraer IP y puerto del cuerpo de la solicitud
     const { ip, port } = req.body;
 
-    // Verificar si el par ya está en la lista
-    const peer = PEERS_LIST.find(peer => peer.ip === ip && peer.port === port);
-    if (peer) {
-        return res.send('Already logged in');
+    if(checkLogIn(ip, port)){
+        return res.json('Already logged in')
     }
 
     // Agregar el par a la lista con el IP y puerto proporcionados
@@ -28,11 +26,12 @@ function login(req, res) {
 function logout(req, res) {
     // print ip
     const { ip, port } = req.body
-
+    console.log(ip, port)
+    const peer = checkLogIn(ip, port)
+    console.log(peer)
     // check if peer is in list
-    const peer = PEERS_LIST.find(peer => peer.ip === ip && peer.port === port)
-    if (!peer) {
-        return res.send('Not logged in')
+    if(!peer){
+        return res.json('Not logged in')
     }
 
     // remove peer from list using splice
@@ -42,4 +41,13 @@ function logout(req, res) {
     res.json('Logout')
 }
 
-export default { login, logout }
+// Is the peer logged in?
+function checkLogIn(ip, port) {
+    const peer = PEERS_LIST.find(peer => peer.ip === ip && peer.port === port);
+    if (peer) {
+        return peer;
+    }
+    return false;
+}
+
+export default { login, logout, checkLogIn}

@@ -2,7 +2,7 @@ import { getConfig } from "./config/configStore.js";
 import axios from "axios";
 function login(){
     const API_URL = getConfig('SERVER_CENTRAL_ADDRESS');
-    const PORT = process.env.PORT;
+    const PORT = getConfig('PORT');
     const IP_ADDRESS = getConfig('IP_ADDRESS');
     const url = `${API_URL}login`;
     const data = { ip: IP_ADDRESS, port: PORT };
@@ -20,7 +20,7 @@ function login(){
 
 function logout(req, res) {
     const API_URL = getConfig('SERVER_CENTRAL_ADDRESS');
-    const PORT = process.env.PORT;
+    const PORT = getConfig('PORT');
     const IP_ADDRESS = getConfig('IP_ADDRESS');
     const url = `${API_URL}logout`;
     const data = { ip: IP_ADDRESS, port: PORT };

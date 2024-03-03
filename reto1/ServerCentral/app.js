@@ -16,5 +16,6 @@ app.post('/login', auth.login);
 app.post('/logout', auth.logout);
 app.post('/upload', coreManager.uploadFile);
 app.get('/file/:name', coreManager.getFileByName);
+app.post('/availablePeer', coreManager.getAvailablePeer);
 
 export default app
