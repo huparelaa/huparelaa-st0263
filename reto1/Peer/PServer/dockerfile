@@ -11,6 +11,9 @@ RUN npm install
 # Bundle app source
 COPY . .
 
+# API REST
 EXPOSE 3000
+# gRPC
+EXPOSE 50051
 
 CMD [ "node", "index.js" ]

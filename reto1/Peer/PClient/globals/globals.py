@@ -1,7 +1,7 @@
 import json
 import os
 
-def read_config_file(file_path='../../config.json'):
+def read_config_file(file_path='../config.json'):
     try:
         # see path
         file_path = os.path.join(os.path.dirname(__file__), file_path)

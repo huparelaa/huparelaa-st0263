@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export const loadConfigurations = () => {
-  const filePath = path.join(__dirname, '../../config.json');
+  const filePath = path.join(__dirname, '../config.json');
   try {
     const data = fs.readFileSync(filePath, 'utf8');
     const jsonConfig = JSON.parse(data);
