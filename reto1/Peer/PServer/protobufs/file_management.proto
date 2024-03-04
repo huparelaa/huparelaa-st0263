@@ -22,7 +22,7 @@ message FileRequest {
 
 // Estado de la transferencia de archivos
 message TransferStatus {
-  string name = 1 ;
+  string name = 1;
   string message = 2;
   bool success = 3;
 }

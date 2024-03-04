@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package fileTransfer;
+package file_management;
 
 // El servicio que define las operaciones de subida y descarga de archivos
 service FileTransferService {

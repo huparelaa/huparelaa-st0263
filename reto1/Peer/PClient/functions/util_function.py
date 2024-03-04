@@ -9,3 +9,9 @@ def getAvailablePeer():
     url = f"{CENTRAL_SERVER_URL}availablePeer"
     response = requests.post(url, json={"ip": IP_ADDRESS, "port": PORT})
     return response.json()
+
+def transformToHTTPUrl(ip, port):
+    return f"http://{ip}:{port}/"
+
+def transformTogRPCUrl(ip_address, grpc_port):
+    return f"{ip_address}:{grpc_port}"

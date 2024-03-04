@@ -1,15 +1,14 @@
-from functions.download import download as f_download
-from functions.upload import upload as f_upload
 from functions.logout import logout as f_logout
+from functions.grpc import upload_file as f_upload
+from functions.grpc import download_file as f_download
 
 def logout():
     f_logout()
 
 def upload():
-    f_upload()
+    fileName = input("Enter the file name: ")
+    f_upload(file_name=fileName)
 
 def download():
-    print("Download file")
-    print("File name: ")
-    file_name = input()
-    return file_name
+    fileName = input("Enter the file name: ")
+    f_download(file_name=fileName)
