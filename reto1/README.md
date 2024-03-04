@@ -90,6 +90,7 @@ A nivel de buenas prácticas y patrones de diseño se implementó un singleton e
     - Recuerda que este proceso se debe realizar
   - **Guía visual:**
     - Servidor central corriendo en el puerto 8080
+      
     ![image](https://github.com/huparelaa/huparelaa-st0263/assets/81880485/ae6b39f1-1257-4c4a-9b27-d64e78caa9be)
     - Peer1 corriendo en los puertos `54321` y `50052`
     ![image](https://github.com/huparelaa/huparelaa-st0263/assets/81880485/e93b5ff2-7b86-4a56-80b9-961d5e08a7f3)
