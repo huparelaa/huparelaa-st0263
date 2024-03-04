@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  pserver:
+    build: ./PServer
+    ports:
+      - "50051:50051"
+      - "8080:8080"
+
+  pclient:
+    build: ./PClient
+    stdin_open: true
+    tty: true
