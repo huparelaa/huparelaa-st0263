@@ -18,6 +18,8 @@ export const loadConfigurations = () => {
     setConfig('SERVER_CENTRAL_ADDRESS', jsonConfig.SERVER_CENTRAL_ADDRESS);
     // PORT
     setConfig('PORT', jsonConfig.PORT);
+    // PORT_GRPC
+    setConfig('PORT_GRPC', jsonConfig.PORT_GRPC);
   } catch (error) {
     console.error('Failed to load configurations:', error);
   }
